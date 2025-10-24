@@ -1,0 +1,42 @@
+{
+  "name": "nuxt-base-project",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "nuxt": "^4.1.0",
+    "vue": "^3.5.21",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.2.1",
+    "@nuxt/eslint": "^1.9.0",
+    "@nuxt/ui": "^3.3.3",
+    "@nuxtjs/i18n": "^9.5.6",
+    "@pinia/nuxt": "^0.11.2",
+    "@tailwindcss/vite": "^4.1.12",
+    "axios": "^1.11.0",
+    "dayjs": "^1.11.18",
+    "eslint": "^9.34.0",
+    "eslint-plugin-format": "^1.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.6",
+    "pinia-plugin-persistedstate": "^4.5.0",
+    "tailwindcss": "^4.1.12",
+    "typescript": "^5.9.2",
+    "vue-tsc": "^2.2.12",
+    "zod": "^4.1.5"
+  },
+  "lint-staged": {
+    "*": "pnpm lint"
+  }
+}

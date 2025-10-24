@@ -1,0 +1,11 @@
+node_modules
+.git
+.nuxt
+.output
+.vscode
+dist
+logs
+*.log
+.DS_Store
+npm-debug.log
+pnpm-debug.log 
