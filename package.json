@@ -13,7 +13,14 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@internationalized/date": "^3.10.0",
+    "@mediapipe/camera_utils": "^0.3.1675466862",
+    "@mediapipe/drawing_utils": "^0.3.1675466124",
+    "@mediapipe/hands": "^0.4.1675469240",
+    "@nuxtjs/cloudinary": "^4.0.0",
+    "firebase": "^12.4.0",
     "nuxt": "^4.1.0",
+    "slugify": "^1.6.6",
     "vue": "^3.5.21",
     "vue-router": "^4.5.1"
   },
