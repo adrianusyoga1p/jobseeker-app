@@ -68,13 +68,35 @@ export default defineNuxtConfig({
 
   ui: {
     prefix: "UI",
+    theme: {
+      colors: [
+        "primary",
+        "secondary",
+        "gradient",
+        "info",
+        "success",
+        "warning",
+        "error",
+      ],
+    },
   },
 
-  // icon: {
-  //   provider: "server",
-  //   mode: "svg",
-  //   serverBundle: {
-  //     collections: ["solar", "fa6-brands"],
-  //   },
-  // },
+  icon: {
+    provider: "server",
+    mode: "svg",
+    serverBundle: {
+      collections: ["fluent"],
+    },
+  },
+
+  hooks: {
+    "pages:extend": function (pages) {
+      // filter all route that contain `_components`
+      for (let i = pages.length - 1; i >= 0; i--) {
+        if (pages[i]?.path.includes("_components")) {
+          pages.splice(i, 1); // remove route\
+        }
+      }
+    },
+  },
 });
