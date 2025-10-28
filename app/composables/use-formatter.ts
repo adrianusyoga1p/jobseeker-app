@@ -9,7 +9,7 @@ export default () => {
   const formatPrice = (price?: number | string | null) => {
     if (typeof price == "string")
       return formatPrice(Number.parseFloat(price));
-    if (!price || Number.isNaN(price) || price == null)
+    if (Number.isNaN(price) || price == null)
       return formatPrice(0);
 
     return new Intl.NumberFormat("id-ID", {
