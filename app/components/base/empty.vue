@@ -2,13 +2,14 @@
 defineProps<{
   title?: string;
   subtitle?: string;
+  imgSrc?: string;
 }>();
 </script>
 
 <template>
   <div class="flex flex-col items-center justify-center gap-4 w-full py-20">
     <img
-      src="/img/empty.png"
+      :src="imgSrc ?? '/img/empty.png'"
       alt="empty"
       class="w-[300px] h-[300px]"
     >
