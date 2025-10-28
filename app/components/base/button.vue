@@ -8,7 +8,7 @@ const { size = "md", color = "primary", disabled, loading } = defineProps<{
 
 const buttonClasses = computed(() => {
   const base
-    = "inline-flex gap-2.5 items-center justify-center font-bold rounded-lg transition-all duration-200 focus:outline-none";
+    = "inline-flex gap-2.5 border items-center justify-center font-bold rounded-lg transition-all duration-200 focus:outline-none";
 
   const sizes: Record<string, string> = {
     sm: "px-4 py-1 h-7 text-xs",
@@ -17,13 +17,13 @@ const buttonClasses = computed(() => {
   };
 
   const colors: Record<string, string> = {
-    primary: "bg-primary-main text-netral-10 hover:bg-primary-hover",
-    secondary: "bg-secondary-main text-netral-90 hover:bg-secondary-hover",
-    danger: "bg-danger-main text-netral-10 hover:bg-danger-hover",
-    warning: "bg-warning-main text-netral-10 hover:bg-warning-hover",
-    success: "bg-success-main text-netral-10 hover:bg-success-hover",
+    primary: "bg-primary-main border-primary-main text-netral-10 hover:bg-primary-hover hover:border-primary-hover",
+    secondary: "bg-secondary-main text-netral-90 hover:bg-secondary-hover border-secondary-main hover:border-secondary-hover",
+    danger: "bg-danger-main text-netral-10 hover:bg-danger-hover border-danger-main hover:border-danger-hover",
+    warning: "bg-warning-main text-netral-10 hover:bg-warning-hover border-warning-main hover:border-warning-hover",
+    success: "bg-success-main text-netral-10 hover:bg-success-hover border-success-main hover:border-success-hover",
     outline:
-      "bg-netral-10 border border-netral-40 text-netral-100 hover:bg-netral-40",
+      "bg-netral-10 border-netral-40 text-netral-100 hover:bg-netral-40 hover:border-netral-40",
   };
 
   const disabledStyle
