@@ -137,22 +137,6 @@ function removeDateSelect(index: number, field: DynamicForm) {
       </template>
     </base-input>
 
-    <!-- <base-input
-      v-model="modelValue.description"
-      label="Job Description"
-    >
-      <template
-        v-if="errors.description"
-        #message
-      >
-        <p
-          class="text-danger-main text-xs"
-        >
-          {{ errors.description }}
-        </p>
-      </template>
-    </base-input> -->
-
     <base-editor
       v-model="modelValue.description"
       label="Job Description"

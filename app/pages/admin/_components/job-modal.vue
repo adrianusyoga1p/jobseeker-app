@@ -31,6 +31,13 @@ const form = reactive<JobPayload>({
       active: true,
       required: true,
       data: [],
+    }, {
+      label: "Email",
+      key: "email",
+      type: "text",
+      active: true,
+      required: true,
+      data: [],
     }] as DynamicForm[],
   },
 });
