@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
 
+import { signOut } from "firebase/auth";
+
 const { user } = storeToRefs(useAuthStore());
 const { logout } = useAuthStore();
 const { job } = storeToRefs(useJobStore());
+const route = useRoute();
+
+async function handleSignOut() {
+  const { auth } = useFirebase();
+  logout();
+  await signOut(auth);
+}
 
 const items = [
   {
@@ -11,11 +20,9 @@ const items = [
     icon: "i-heroicons-arrow-left-end-on-rectangle",
     to: "#",
     class: "!text-danger-main [&>svg]:!text-danger-main hover:bg-danger-surface hover:text-danger-main",
-    onSelect: logout,
+    onSelect: handleSignOut,
   },
 ] satisfies NavigationMenuItem[];
-
-const route = useRoute();
 </script>
 
 <template>
