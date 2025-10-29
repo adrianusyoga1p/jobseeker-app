@@ -3,7 +3,6 @@ import type { User } from "../types/user";
 export const useAuthStore = defineStore("auth", {
   state: () => ({
     user: null as User | null,
-    email: "",
     token: "" as string | null,
   }),
   actions: {
@@ -16,7 +15,6 @@ export const useAuthStore = defineStore("auth", {
     logout() {
       this.user = null;
       this.token = null;
-      this.email = "";
     },
   },
   getters: {
