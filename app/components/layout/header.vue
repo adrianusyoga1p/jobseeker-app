@@ -27,7 +27,7 @@ const items = [
 
 <template>
   <header class="fixed top-0 bg-white h-14 w-full left-0 shadow-md z-50">
-    <div class="h-full flex items-center justify-between max-w-7xl w-full px-6">
+    <div class="h-full flex items-center justify-between w-full px-6 mx-auto">
       <div
         v-if="route.name === 'admin-manage-job-id'"
         class="flex gap-4 items-center"
