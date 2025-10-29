@@ -5,7 +5,7 @@ definePageMeta({
   layout: "default",
   title: "Email Confirmation",
 });
-navigateTo("/auth");
+navigateTo("/auth/sign-in");
 
 // onMounted(async () => {
 //   const { app } = await useFirebase();
