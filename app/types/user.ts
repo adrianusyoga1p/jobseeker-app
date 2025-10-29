@@ -1,1 +1,1 @@
-export type User = { id: string; email: string | null; role: string };
+export type User = { id: string; email: string | null; role: string; name?: string; provider?: string };
