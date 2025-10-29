@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // const router = useRouter();
-const { email } = storeToRefs(useAuthStore());
+// const { email } = storeToRefs(useAuthStore());
 definePageMeta({
   layout: "default",
   title: "Email Confirmation",
@@ -8,7 +8,7 @@ definePageMeta({
 navigateTo("/auth/sign-in");
 
 // onMounted(async () => {
-//   const { app } = await useFirebase();
+//   const { app } = useFirebase();
 //   const auth = getAuth(app);
 
 //   if (isSignInWithEmailLink(auth, window.location.href)) {
@@ -37,11 +37,11 @@ navigateTo("/auth/sign-in");
         Bergabung dengan Rakamin
       </h1>
 
-      <h4 class="text-sm text-center">
+      <!-- <h4 class="text-sm text-center">
         Kami sudah mengirimkan link register ke <b>{{ email }}</b>
 
         yang berlaku dalam <b>30 menit</b>
-      </h4>
+      </h4> -->
     </div>
 
     <div class="flex items-center justify-center">
