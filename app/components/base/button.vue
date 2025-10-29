@@ -8,7 +8,7 @@ const { size = "md", color = "primary", disabled, loading } = defineProps<{
 
 const buttonClasses = computed(() => {
   const base
-    = "inline-flex gap-2.5 border items-center justify-center font-bold rounded-lg transition-all duration-200 focus:outline-none";
+    = "inline-flex gap-2.5 border text-nowrap items-center justify-center font-bold rounded-lg transition-all duration-200 focus:outline-none";
 
   const sizes: Record<string, string> = {
     sm: "px-4 py-1 h-7 text-xs",
