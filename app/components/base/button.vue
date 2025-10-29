@@ -38,11 +38,13 @@ const buttonClasses = computed(() => {
 </script>
 
 <template>
-  <button
-    v-bind="$attrs"
-    :disabled="loading || disabled"
-    :class="buttonClasses"
-  >
-    <slot />
-  </button>
+  <client-only>
+    <button
+      v-bind="$attrs"
+      :disabled="loading || disabled"
+      :class="buttonClasses"
+    >
+      <slot />
+    </button>
+  </client-only>
 </template>
