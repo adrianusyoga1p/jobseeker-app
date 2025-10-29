@@ -74,6 +74,11 @@ You can run this project using Docker and Docker Compose.
    docker compose up
    ```
 3. The app will be available at `http://localhost:3000` by default.
+4. Account for admin
+   ```bash
+   email: admin_rakamin@gmail.com
+   password: password
+   ```
 
 ## Documentation
 
