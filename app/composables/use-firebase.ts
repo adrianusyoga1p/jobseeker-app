@@ -1,19 +1,21 @@
-import { getAnalytics, isSupported } from "firebase/analytics";
+import { getAnalytics } from "firebase/analytics";
 import { getApp, getApps, initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
+import {
+  getAuth,
+  GoogleAuthProvider,
+} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 import useConfig from "./use-config";
 
-export async function useFirebase() {
-  const config = useConfig();
-  const app = getApps().length ? getApp() : initializeApp(config.firebase);
+export function useFirebase() {
+  const { firebase } = useConfig();
+  const app = getApps().length ? getApp() : initializeApp(firebase);
   const auth = getAuth(app);
   const db = getFirestore(app);
   const googleProvider = new GoogleAuthProvider();
 
-  if (import.meta.client && (await isSupported())) {
+  if (import.meta.client) {
     getAnalytics(app);
   }
 
