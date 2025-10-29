@@ -7,11 +7,6 @@ const { job } = storeToRefs(useJobStore());
 
 const items = [
   {
-    label: "Manage Account",
-    icon: "i-heroicons-user",
-    to: "/admin/account",
-  },
-  {
     label: "Log Out",
     icon: "i-heroicons-arrow-left-end-on-rectangle",
     to: "#",
