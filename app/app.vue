@@ -34,6 +34,9 @@ watch(
   },
   { immediate: true },
 );
+
+const { initializeAuthListener } = useAuth();
+initializeAuthListener();
 </script>
 
 <template>
