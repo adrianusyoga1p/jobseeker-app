@@ -1,7 +1,7 @@
 import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 
 export async function getDataList(dbName: string, key?: string, value?: string) {
-  const { db } = await useFirebase();
+  const { db } = useFirebase();
   const dbRef = collection(db, dbName);
   let response;
 
@@ -16,7 +16,7 @@ export async function getDataList(dbName: string, key?: string, value?: string) 
 }
 
 export async function getDataDetail(dbName: string, id: string) {
-  const { db } = await useFirebase();
+  const { db } = useFirebase();
   const response = await getDoc(doc(db, dbName, id));
   return response;
 }

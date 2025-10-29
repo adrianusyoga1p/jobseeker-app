@@ -69,7 +69,7 @@ async function handleSubmit() {
     return;
   }
 
-  const { db } = await useFirebase();
+  const { db } = useFirebase();
 
   const userId = user.value.id;
   const jobId = job.value.id;
