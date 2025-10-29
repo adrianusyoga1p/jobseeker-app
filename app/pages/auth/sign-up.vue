@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onAuthStateChanged } from "firebase/auth";
 import z from "zod";
 
 definePageMeta({
@@ -7,14 +6,13 @@ definePageMeta({
   layout: "default",
 });
 
-const { setUser, setToken } = useAuthStore();
 const loading = ref(false);
 const form = reactive({
   email: "",
   password: "",
 });
 const errors = ref<{ email?: string; password?: string }>({});
-const { registerWithEmailAndPassword } = useAuth();
+const { registerWithEmailAndPassword, loginWithGoogle } = useAuth();
 const errorMessage = ref();
 const schema = z.object({
   email: z.string().check(
@@ -24,7 +22,7 @@ const schema = z.object({
   password: z.string().min(1, "Field is required"),
 });
 
-async function handleSubmit() {
+async function handleEmailLogin() {
   errorMessage.value = "";
 
   const result = schema.safeParse({
@@ -45,7 +43,6 @@ async function handleSubmit() {
       loading.value = true;
       await registerWithEmailAndPassword(form.email, form.password).finally(() => {
         loading.value = false;
-        onStateAuth();
       });
     }
     catch (error) {
@@ -54,20 +51,11 @@ async function handleSubmit() {
   }
 }
 
-async function onStateAuth() {
-  const { auth } = await useFirebase();
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      const token = await user.getIdToken();
-      setUser({
-        id: user.uid,
-        email: user.email,
-        role: "applicant",
-      });
-      setToken(token);
-    }
-  });
-}
+async function handleGoogleLogin(e: Event) {
+  e.preventDefault();
+  loading.value = true;
+  loginWithGoogle();
+};
 </script>
 
 <template>
@@ -97,7 +85,7 @@ async function onStateAuth() {
     <div class="space-y-4">
       <form
         class="space-y-4"
-        @submit.prevent="handleSubmit"
+        @submit.prevent="handleEmailLogin"
       >
         <base-input
           v-model="form.email"
@@ -158,6 +146,7 @@ async function onStateAuth() {
         color="outline"
         size="lg"
         class="!w-full"
+        @click="handleGoogleLogin"
       >
         <img
           src="/icon/google-icon.png"

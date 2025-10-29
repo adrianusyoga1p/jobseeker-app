@@ -25,9 +25,9 @@ const schema = z.object({
   password: z.string().min(1, "Field is required"),
 });
 
-const { loginWithEmailAndPassword } = useAuth();
+const { loginWithEmailAndPassword, loginWithGoogle } = useAuth();
 
-async function handleSubmit() {
+async function handleEmailLogin() {
   errorMessage.value = "";
 
   const result = schema.safeParse({
@@ -46,7 +46,7 @@ async function handleSubmit() {
   if (form.email && form.password) {
     try {
       loading.value = true;
-      const { auth, db } = await useFirebase();
+      const { auth, db } = useFirebase();
 
       const signInMethods = await fetchSignInMethodsForEmail(auth, form.email);
 
@@ -90,6 +90,12 @@ async function handleSubmit() {
     }, 3000);
   }
 }
+
+async function handleGoogleLogin(e: Event) {
+  e.preventDefault();
+  loading.value = true;
+  loginWithGoogle();
+};
 </script>
 
 <template>
@@ -119,7 +125,7 @@ async function handleSubmit() {
     <div class="space-y-4">
       <form
         class="space-y-4"
-        @submit.prevent="handleSubmit"
+        @submit.prevent="handleEmailLogin"
       >
         <base-input
           v-model="form.email"
@@ -192,6 +198,7 @@ async function handleSubmit() {
         size="lg"
         :loading="loading"
         class="!w-full"
+        @click="handleGoogleLogin"
       >
         <img
           src="/icon/google-icon.png"
