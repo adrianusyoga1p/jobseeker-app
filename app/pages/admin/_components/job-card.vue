@@ -69,7 +69,7 @@ function navigateCard() {
   <div
     role="button"
     class="p-6 rounded-2xl shadow-md space-y-3 border border-netral-20 block bg-white"
-    @click="navigateCard"
+    @click.stop="navigateCard"
   >
     <div class="flex gap-4 items-center">
       <base-label
@@ -96,17 +96,11 @@ function navigateCard() {
         </h5>
       </div>
 
-      <!-- <base-button
-        size="sm"
-        class="mt-auto text-nowrap"
-        @click.stop="clickManageJob"
-      >
-        Manage Job
-      </base-button> -->
       <UIDropdownMenu :items="items">
         <base-button
           size="sm"
           class="mt-auto text-nowrap"
+          @click.stop
         >
           Manage Job
         </base-button>
