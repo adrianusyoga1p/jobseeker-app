@@ -1,9 +1,5 @@
 <template>
-  <main class="container mx-auto px-6">
-    <LayoutHeader />
-
+  <main>
     <slot />
-
-    <LayoutFooter />
   </main>
 </template>
