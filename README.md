@@ -1,6 +1,6 @@
-# Nuxt Base Project
+# Job Seeker App
 
-Nuxt Base Project is a web application built with Nuxt 4 and Tailwind CSS 4. This README provides setup instructions and an overview of the project structure.
+Job Seeker App is a web application built with Nuxt 4 and Tailwind CSS 4. This README provides setup instructions and an overview of the project structure.
 
 ## Requirements
 
